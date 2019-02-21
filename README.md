@@ -11,7 +11,7 @@
 - Parameters:
   - headers {
      - secret-token: secret_token
- - }
+  - }
   - URL parameter: {}
 
 ### Filter Customers list:
@@ -21,7 +21,7 @@
 - Parameters:
   - headers {
      - secret-token: secret_token
- - }
+  - }
   - URL parameter: {
     - filter[name]
     - filter[street]
@@ -35,7 +35,7 @@
 - Parameters:
   - headers {
      - secret-token: secret_token
- - }
+  - }
   - body: {
     - customer[name]
     - customer[address_id]
@@ -49,7 +49,7 @@
 - Parameters:
   - headers {
      - secret-token: secret_token
- - }
+  - }
   - body: {
     - customer[name]
     - customer[address_attributes][street]
@@ -57,14 +57,14 @@
     - customer[address_attributes][zip_code]
   - }
 
-### destroy customers with new address:
+### destroy customer with id
 
 - URL: http://localhost:3000/api/v1/customers/:id
 - method: DELETE
 - Parameters:
   - headers {
      - secret-token: secret_token
- - }
+  - }
   - url parameter: {
     - id (customer id)
 
@@ -78,7 +78,7 @@
 - rake db:seed
 - rails server
 
-# How to run the test suite
+# How to run the test suite?
 - open terminal
 - make sure database has been settled up
 - run command 'rspec' on terminal

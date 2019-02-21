@@ -10,7 +10,7 @@ RSpec.describe Address, type: :model do
 
   context 'Create new address with valid data' do
     it 'Can create address' do
-      @address = Address.create(street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code)
+      @address = FactoryBot.create(:address)
 
       expect(!@address.new_record?)
       expect(@address.customers).to match([])
