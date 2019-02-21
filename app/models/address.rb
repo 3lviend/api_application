@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-	has_many :customers
+	has_many :customers, inverse_of: :address
 
-	validate :street, presence: true
+	validates :street, presence: true
 end
