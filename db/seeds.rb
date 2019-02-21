@@ -1,7 +1,38 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Create initials address
+addresses = [
+  {street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code},
+  {street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code},
+  {street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code}
+]
+
+Address.create(addresses)
+
+# Customers with existing address id
+customers = [
+  {name: Faker::Name.name, address_id: Address.all.sample.id},
+  {name: Faker::Name.name, address_id: Address.all.sample.id},
+  {name: Faker::Name.name, address_id: Address.all.sample.id}
+]
+
+Customer.create(customers)
+
+# Customers with new address
+customers = [
+  {
+    name: Faker::Name.name, address_attributes: {
+      street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code
+    }
+  },
+  {
+    name: Faker::Name.name, address_attributes: {
+      street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code
+    }
+  },
+  {
+    name: Faker::Name.name, address_attributes: {
+      street: Faker::Address.street_name, city: Faker::Address.city, zip_code: Faker::Address.zip_code
+    }
+  }
+]
+
+Customer.create(customers)

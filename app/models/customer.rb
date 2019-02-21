@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
 
 	class << self
 		def filter_by(filter, condition = {})
+			results = self
 			results = self.where("name LIKE ?", "%#{filter[:name]}%") if filter[:name].present?
 			results = results.joins(:address).where("addresses.street LIKE ?", "%#{filter[:street]}%") if filter[:street].present?
 
